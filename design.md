@@ -9,9 +9,6 @@ This API endpoint returns a list of movies related to "The Lord of the Rings" an
 
 The request to the API endpoint `http://localhost:3000/api/v1/movies/` does not require any specific request parameters.
 
-#### Endpoint
-
-
 ### Response
 
 The response from the API endpoint `http://localhost:3000/api/v1/movies/` will be in JSON format and will include the following structure:
@@ -32,22 +29,23 @@ The response from the API endpoint `http://localhost:3000/api/v1/movies/` will b
     },
   ]
 }
-
+```
 The response will include the following properties:
 
-status (string): The status of the API response.
-data (array): An array containing movie objects.
+* status (string): The status of the API response.
+* data (array): An array containing movie objects.
+
 Each movie object will have the following properties:
-
-_id (string): The unique identifier of the movie.
-name (string): The name or title of the movie.
-runtimeInMinutes (integer): The runtime of the movie in minutes.
-budgetInMillions (integer): The budget of the movie in millions.
-boxOfficeRevenueInMillions (integer): The box office revenue of the movie in millions.
-academyAwardNominations (integer): The number of academy award nominations received by the movie.
-academyAwardWins (integer): The number of academy awards won by the movie.
-rottenTomatoesScore (float): The Rotten Tomatoes score of the movie.
-
+````
+   _id (string): The unique identifier of the movie.
+  name (string): The name or title of the movie.
+  runtimeInMinutes (integer): The runtime of the movie in minutes.
+  budgetInMillions (integer): The budget of the movie in millions.
+  boxOfficeRevenueInMillions (integer): The box office revenue of the movie in millions.
+  academyAwardNominations (integer): The number of academy award nominations received by the movie.
+  academyAwardWins (integer): The number of academy awards won by the movie.
+  rottenTomatoesScore (float): The Rotten Tomatoes score of the movie.
+````
 ### Error Handling
 
 In case of any errors, the API should follow standard HTTP error status codes and return appropriate error messages in the response body.
@@ -55,8 +53,12 @@ In case of any errors, the API should follow standard HTTP error status codes an
 ### SDK Usage Example
 
 Below is an example of how the SDK client can use the API endpoint `http://localhost:3000/api/v1/movies/?query=budgetInMillions<100`
-In this example, the URL  is used to retrieve movies with a budget less than 100 million. The response is then processed and the details of each movie are printed.
+
+In this example, the URL  is used to retrieve movies with a budget less than 100 million. 
+The response is then processed and the details of each movie are printed.
+
 You can similarly use other filtering options like academyAwardWins>0 or runtimeInMinutes>=160 by modifying the URL accordingly:
+
 ```code
 import requests
 
@@ -72,9 +74,6 @@ def get_movie_data():
             print(f"Box Office Revenue: ${movie['boxOfficeRevenueInMillions
 ```
 
-
-
-
 ## API Endpoint: `http://localhost:3000/api/v1/movies/{movieId}`
 
 ### Description
@@ -83,9 +82,6 @@ This API endpoint allows you to retrieve information about a specific movie by p
 ### Request
 
 The request to the API endpoint `http://localhost:3000/api/v1/movies/{movieId}` requires the `movieId` path parameter to specify the ID of the movie you want to retrieve.
-
-#### Endpoint
-
 
 ### Response
 
@@ -107,24 +103,26 @@ The response from the API endpoint `http://localhost:3000/api/v1/movies/{movieId
     }
   ]
 }
-
+```
 The response will include the following properties:
-    • status (string): The status of the API response.
-    • data (array): An array containing a single movie object that matches the provided movieId.
-The movie object will have the following properties:
-    • _id (string): The unique identifier of the movie.
-    • name (string): The name or title of the movie.
-    • runtimeInMinutes (integer): The runtime of the movie in minutes.
-    • budgetInMillions (integer): The budget of the movie in millions.
-    • boxOfficeRevenueInMillions (integer): The box office revenue of the movie in millions.
-    • academyAwardNominations (integer): The number of academy award nominations received by the movie.
-    • academyAwardWins (integer): The number of academy awards won by the movie.
-    • rottenTomatoesScore (float): The Rotten Tomatoes score of the movie.
-SDK Usage Example
+
+* status (string): The status of the API response.
+* data (array): An array containing movie objects.
+
+Each movie object will have the following properties:
+
+    _id (string): The unique identifier of the movie.
+    name (string): The name or title of the movie.
+    runtimeInMinutes (integer): The runtime of the movie in minutes.
+    budgetInMillions (integer): The budget of the movie in millions.
+    boxOfficeRevenueInMillions (integer): The box office revenue of the movie in millions.
+    academyAwardNominations (integer): The number of academy award nominations received by the movie.
+    academyAwardWins (integer): The number of academy awards won by the movie.
+    rottenTomatoesScore (float): The Rotten Tomatoes score of the movie.
+
+### SDK Usage Example
 Below is an example of how the SDK client can use the API endpoint `http://localhost:3000/api/v1/movies/{movieId}`:
 ```code
-import requests
-
 import requests
 
 def get_movie_details(movie_id):
@@ -143,9 +141,7 @@ def get_movie_details(movie_id):
 
 # Calling the functions to get movie details and quotes
 get_movie_details("5cd95395de30eff6ebccde5c")
-
-
-
+```
 
 ## API Endpoint: `http://localhost:3000/api/v1/movies/{movieId}/quote`
 
@@ -154,15 +150,12 @@ get_movie_details("5cd95395de30eff6ebccde5c")
 This API endpoint allows you to retrieve quotes from a specific movie by providing the movie ID in the URL. The response will include an array of quotes related to the movie.
 ### Request
 
-The request to the API endpoint http://localhost:3000/api/v1/movies/{movieId}/quote requires the movieId path parameter to specify the ID of the movie you want to retrieve quotes from.
-
-### Endpoint
-
-``` GET http://localhost:3000/api/v1/movies/{movieId}/quote ```
+The request to the API endpoint `http://localhost:3000/api/v1/movies/{movieId}/quote` requires the movieId path parameter to specify the ID of the movie you want to retrieve quotes from.
 
 ### Response
 
 The response from the API endpoint `http://localhost:3000/api/v1/movies/{movieId}/quote` will be in JSON format and will include the following structure:
+````
 {
   "status": "200",
   "data": [
@@ -173,21 +166,24 @@ The response from the API endpoint `http://localhost:3000/api/v1/movies/{movieId
     }
   ]
 }
+````
 
 The response will include the following properties:
-    • status (string): The status of the API response.
-    • data (array): An array containing a single movie object that matches the provided movieId.
+
+* status (string): The status of the API response.
+* data (array): An array containing a single movie object that matches the provided movieId.
+
 The movie object will have the following properties:
-    • _id (string): The unique identifier of the movie.
-    • name (string): The name or title of the movie.
-    • quotes (array): An array of quotes from the movie. (Currently empty)
+
+    _id (string): The unique identifier of the movie.
+    name (string): The name or title of the movie.
+    quotes (array): An array of quotes from the movie. (Currently empty)
 
 
-
-### SDK Usage
+### SDK Usage Example
+Below is an example of how the SDK client can use the API endpoint `http://localhost:3000/api/v1/movies/{movie_id}/quote`:
 ```
 import requests
-
 
 def get_movie_quotes(movie_id):
     url = f"http://localhost:3000/api/v1/movies/{movie_id}/quote"
@@ -203,18 +199,15 @@ def get_movie_quotes(movie_id):
 
 # Calling the functions to get movie details and quotes
 get_movie_quotes("5cd95395de30eff6ebccde5c")
-
 ```
 
-## API Endpoint:  http://localhost:3000/api/v1/movies/quotes
+## API Endpoint: `http://localhost:3000/api/v1/movies/quotes`
 
-Description
+### Description
 This API endpoint allows you to retrieve a list of quotes from various movies. Each quote includes the dialog, movie ID and name, character ID and name, and a unique quote ID.
-Request
-The request to the API endpoint http://localhost:3000/api/v1/quotes does not require any additional parameters.
-Endpoint
-` GET http://localhost:3000/api/v1/quotes `
 
+### Request
+The request to the API endpoint http://localhost:3000/api/v1/quotes does not require any additional parameters.
 
 ### Response
 
@@ -232,23 +225,28 @@ The response from the API endpoint `http://localhost:3000/api/v1/quotes` will be
       "id": "5cd96e05de30eff6ebcce7e9"
     },
   ]
-}  ```
+}  
+```
 
 The response will include the following properties:
-    • status (string): The status of the API response.
-    • data (array): An array containing multiple quote objects.
+
+* status (string): The status of the API response.
+* data (array): An array containing multiple quote objects.
+
 Each quote object will have the following properties:
-    • _id (string): The unique identifier of the quote.
-    • dialog (string): The dialog of the quote.
-    • movie (object): An object containing the movie details.
+
+    _id (string): The unique identifier of the quote.
+    dialog (string): The dialog of the quote.
+    movie (object): An object containing the movie details.
         ◦ id (string): The unique identifier of the movie.
         ◦ name (string): The name or title of the movie.
-    • character (object): An object containing the character details.
+    character (object): An object containing the character details.
         ◦ id (string): The unique identifier of the character.
         ◦ name (string): The name of the character.
-    • id (string): The unique identifier of the quote.
-SDK Usage Example
-Below is an example of how the SDK client can use the API endpoint http://localhost:3000/api/v1/quotes:
+    id (string): The unique identifier of the quote.
+
+### SDK Usage Example
+Below is an example of how the SDK client can use the API endpoint `http://localhost:3000/api/v1/quotes`:
 ```
 import requests
 
@@ -272,7 +270,7 @@ def get_quotes():
 get_quotes()
 ```
 
-## API Endpoint: http://localhost:3000/api/v1/quotes/{quoteId}
+## API Endpoint: `http://localhost:3000/api/v1/quotes/{quoteId}`
 ### Description
 This API endpoint allows you to retrieve information about a specific quote by providing the quote ID in the URL. The response will include the dialog, movie ID and name, character ID and name, and the quote ID.
 ### Request
@@ -302,20 +300,23 @@ The response from the API endpoint `http://localhost:3000/api/v1/quotes/{quoteId
 ```
 
 The response will include the following properties:
-    • status (string): The status of the API response.
-    • data (object): An object containing the quote details.
+   
+* status (string): The status of the API response.
+* data (object): An object containing the quote details.
 The quote object will have the following properties:
-    • _id (string): The unique identifier of the quote.
-    • dialog (string): The dialog of the quote.
-    • movie (object): An object containing the movie details.
-        ◦ id (string): The unique identifier of the movie.
-        ◦ name (string): The name or title of the movie.
-    • character (object): An object containing the character details.
-        ◦ id (string): The unique identifier of the character.
-        ◦ name (string): The name of the character.
-    • id (string): The unique identifier of the quote.
-SDK Usage Example
-Below is an example of how the SDK client can use the API endpoint http://localhost:3000/api/v1/quotes/{quoteId}:
+ 
+     _id (string): The unique identifier of the quote.
+     dialog (string): The dialog of the quote.
+     movie (object): An object containing the movie details.
+       ◦ id (string): The unique identifier of the movie.
+       ◦ name (string): The name or title of the movie.
+     character (object): An object containing the character details.
+       ◦ id (string): The unique identifier of the character.
+       ◦ name (string): The name of the character.
+     id (string): The unique identifier of the quote.
+
+### SDK Usage Example
+Below is an example of how the SDK client can use the API endpoint `http://localhost:3000/api/v1/quotes/{quoteId}`:
 
 ```
 import requests
@@ -339,13 +340,15 @@ get_quote("5cd96e05de30eff6ebcce7e9")
 Feel free to adjust the SDK usage examples based on your programming language and requirements.
 
 ### Other endpoints coming soon in V2!
-/book 			List of all "The Lord of the Rings" books
-/book{id}/chapter	Request all chapters of one specific book
-/character			List of characters including metadata like name, gender, realm, race
-/character/{id}		Request one character
-/character/{id}/quote	Request all movie quotes of one specific character
-/chapter			List of all book chapters
-/chapter/{id}		Request one specific book chapter
+|endpoint|description
+| --- | ----------- |
+| /book 			     | List of all "The Lord of the Rings" books |
+| /book{id}/chapter	    | Request all chapters of one specific book |
+| /character			      | List of characters including metadata like name, gender, realm, race |
+| /character/{id}		    | Request one character |
+| /character/{id}/quote	| Request all movie quotes of one specific character |
+| /chapter			| List of all book chapters |
+| /chapter/{id}	|	Request one specific book chapter |
 
 
 
