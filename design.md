@@ -54,14 +54,14 @@ In case of any errors, the API should follow standard HTTP error status codes an
 
 ### SDK Usage Example
 
-Below is an example of how the SDK client can use the API endpoint `http://localhost:3000/api/v1/movies/?budgetInMillions<100`
+Below is an example of how the SDK client can use the API endpoint `http://localhost:3000/api/v1/movies/?query=budgetInMillions<100`
 In this example, the URL  is used to retrieve movies with a budget less than 100 million. The response is then processed and the details of each movie are printed.
 You can similarly use other filtering options like academyAwardWins>0 or runtimeInMinutes>=160 by modifying the URL accordingly:
 ```code
 import requests
 
 def get_movie_data():
-    url ="http://localhost:3000/api/v1/movies?budgetInMillions<100"
+    url ="http://localhost:3000/api/v1/movies?query=budgetInMillions<100"
     response = requests.get(url)
     if response.status_code == 200:
         movies = response.json()["data"]
