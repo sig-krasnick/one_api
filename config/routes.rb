@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :quotes, only: %i[index show],  defaults: { format: 'json' }
+ 
+  resources :movies, only: %i[index show], defaults: { format: 'json' } do
+    member do
+      get :quote
+    end
+  end
 end
