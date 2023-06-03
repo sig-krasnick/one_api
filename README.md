@@ -2,6 +2,12 @@
 
 ## Welcome to the The Lord of the Rings SDK to access the "one API to rule them all"
 
+## System Dependencies
+ * The code was generated using the latest 3.x version of Ruby (3.1.2).  
+   Earlier versions might not work properly
+ * Rails 7.0
+ * Bundler 2.4.12
+   
 ## Installation
  * Clone this git repository
  * cd into project
@@ -11,9 +17,6 @@
  * sign up to obtain an access key from https://the-one-api.dev/sign-up
  * Modify .env hidden configuation file
         `API_TOKEN={access_token}`
-## System Dependencies
- * The code was generated using the latest 3.x version of Ruby (3.1.2).  
-   Earlier versions might not work properly
 
 ## Run and test API locally
  * In a terminal window in the project directory run `bundle exec rails server` to start server
