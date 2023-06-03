@@ -1,4 +1,4 @@
-class MoviesController < ApplicationController
+class Api::V1::MoviesController < ApplicationController
   def index
     code, @movies = Movie.all(permitted_params)
     result = {status: code, data: @movies['docs']}
@@ -6,8 +6,8 @@ class MoviesController < ApplicationController
   end
 
   def show
-    code, @movies = Movie.find_by_id("#{permitted_params[:id]}")
-    result = {status: code, data: @movies['docs']}
+    code, @movie = Movie.find_by_id("#{permitted_params[:id]}")
+    result = {status: code, data: @movie['docs']}
     render json: result
   end
 
