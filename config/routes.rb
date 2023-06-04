@@ -9,7 +9,6 @@ Rails.application.routes.draw do
           get :quote
         end
       end
-  end
-  
+    end
   end
 end

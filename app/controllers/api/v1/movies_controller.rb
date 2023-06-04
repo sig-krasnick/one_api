@@ -17,14 +17,4 @@ class Api::V1::MoviesController < ApplicationController
     render json: result
   end
 
-  private
-
-  def permitted_params
-    params.permit(:id, :query)
-      
-      # :name, :runtimeInMinutes, :budgetInMillions, :boxOfficeRevenueInMillions, :academyAwardNominations,
-      #             :academyAwardWins, :rottenTomatoesScore )
-  end
-
-  
 end

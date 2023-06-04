@@ -10,10 +10,4 @@ class Api::V1::QuotesController < ApplicationController
     result = result = {status: code, data: @quote['docs']}
     render json: result
   end
-
-  private
-
-  def permitted_params
-    params.permit(:id, :query)
-  end
 end

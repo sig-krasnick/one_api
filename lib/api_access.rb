@@ -50,8 +50,22 @@ class ApiAccess
 
     def set_url(resource, params)
       url = "#{URL}#{resource}"
-      url = url + '?' + params[:query] if params[:query].present?
+      url = url + set_filter_params(params) if check_filter_params(params)
       URI.parse(url)
+    end
+
+    def set_filter_params(params)
+      url = []
+      url << params[:query] if params[:query] 
+      url << 'sort=' + params[:sort] if params[:sort]
+      url << 'page=' + params[:page] if params[:page]
+      url << 'limit=' +params[:limit] if params[:limit]
+      url << 'offset=' + params[:offset] if params[:offset]
+      '?' + url.join('&')
+    end 
+
+    def check_filter_params(params)
+      (params[:query] || params[:sort] || params[:limit] || params[:page] || params[:offset]).present?
     end
   end
 end
