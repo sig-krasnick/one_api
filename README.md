@@ -30,6 +30,14 @@
 
  * A single filtered request will work such as this
      * http://localhost:3000/api/v1/movies?query=budgetInMillions<100
+     
+ ## Note about unit testing    
+ * Currently there are no working unit tests.  The lack of a database and any ActiveRecord models, i.e. all models are descendent of a ApiAccess and not ActiveRecord::Base  
+   makes it difficult to create valid unit tests.    
+
+   In order to test the underlying integration api calls, a gem 
+   such as vcr/vcr would need to be installed and the api calls would need to be captured and replayed.  
+   This would take a considerable effort and is beyond the scope of this project.  
 
 
 ## Developer's Notes
